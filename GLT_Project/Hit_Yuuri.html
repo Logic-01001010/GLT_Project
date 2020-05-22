@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hit Yuuri!</title>
+	<link href="icon.ico" rel="shortcut icon" type="image/x-icon">
+
+
+	<audio id='audio_play' src='HitSound.mp3'></audio>
+
+
+	<audio loop id='BGM_play' src='BGM.mp3'></audio>
+
+
+	<style>
+
+		html, body{margin: 0; padding: 0; height: 100%}
+
+		
+		.left
+		{
+
+			float: left;
+
+			width: 25%;
+
+			height: 100%;
+
+		}
+
+		.left-front
+		{
+			float: left;
+
+			width: 25%;
+
+			height: 100%;
+		}
+
+
+		.right-front
+		{
+			float: left;
+
+			width: 25%;
+
+			height: 100%;
+		}
+
+		.right
+		{
+			float: left;
+
+			
+			width: 25%;
+
+			height: 100%;
+
+		}
+
+
+
+		body
+		{
+			background-color: #000000;
+			background-image: url('r.jpg'), url('background.png');
+			background-repeat: no-repeat;
+			background-size: 800px, 110%;
+			background-position: center;
+		}
+
+
+		p
+		{
+			display: inline;
+
+			text-shadow: 3px 3px 1px rgba(30, 186, 237);
+			color: white;
+
+			font-size: 30px;
+		}
+
+
+	</style>
+
+
+	<script>
+		var toggel=0;
+
+		function play() { 
+		    
+		    var audio = document.getElementById('audio_play'); 
+		    if (audio.paused) 
+		    { 
+		    	if(toggel==1)
+		        audio.play(); 
+		    }
+
+		    else
+		    { 
+		        audio.pause(); 
+		        audio.currentTime = 0 
+		    } 
+		} 
+
+		function BGM() { 
+		    
+		    var audio = document.getElementById('BGM_play'); 
+		    if (audio.paused) 
+		    { 
+		        audio.play(); 
+		        alert("배경 음악을 재생합니다. : Cheese-tte Nani?");
+		    }
+
+		    else
+		    { 
+		        audio.pause(); 
+		        audio.currentTime = 0
+		    } 
+		} 
+
+
+
+		function changeBgL()
+		{
+			var body=document.getElementsByTagName("body");
+
+			body[0].style.backgroundImage="url(" + 'l.jpg' + "), url('background.png')";
+
+
+			
+		}
+
+
+
+		function changeBgLF()
+		{
+			var body=document.getElementsByTagName("body");
+		
+
+			body[0].style.backgroundImage="url(" + 'lf.jpg' + "), url('background.png')";
+
+		}
+
+
+		function changeBgRF()
+		{
+			var body=document.getElementsByTagName("body");
+
+
+			body[0].style.backgroundImage="url(" + 'rf.jpg' + "), url('background.png')";
+		}
+
+
+		function changeBgR()
+		{
+			var body=document.getElementsByTagName("body");
+		
+	
+			body[0].style.backgroundImage="url(" + 'r.jpg' + "), url('background.png')";
+
+		}
+
+		function HIT()
+		{
+			if(toggel==1)
+			{
+			
+			toggel=0;
+			alert("이타이! 모드 OFF");
+			}
+			else if(toggel==0)
+			{
+			
+			toggel=1;
+			alert("이타이! 모드 ON");
+			}
+		}
+
+
+
+
+	</script>
+
+
+
+</head>
+<body>
+
+	<div style="text-align: center; margin-top: 100px;">
+		<p onclick="BGM();">BGM (ON/OFF)</p></div>
+
+	<div style="text-align: center; "><p onclick="HIT();">HIT_SOUND (ON/OFF)</div>
+
+
+	<div class="left" onmouseover="changeBgL(); play();"></div>
+
+
+	<div class="left-front" onmouseover="changeBgLF()" ></div>
+
+	<div class="right-front" onmouseover="changeBgRF()" ></div>
+
+
+	<div class="right" onmouseover="changeBgR()" ></div>
+
+
+</body>
+</html>
