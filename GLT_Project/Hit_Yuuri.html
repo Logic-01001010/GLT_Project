@@ -13,7 +13,7 @@
 
 	<style>
 
-		html, body{margin: 0; padding: 0; height: 100%}
+		html, body{margin: 0; padding: 0; height: 85%}
 
 		
 		.left
@@ -69,12 +69,14 @@
 		}
 
 
-		p
+		p, h2
 		{
 			display: inline;
 
-			text-shadow: 3px 3px 1px rgba(30, 186, 237);
+			text-shadow: 1px 1px 1px rgba(30, 186, 237);
 			color: white;
+
+
 
 			font-size: 30px;
 		}
@@ -85,6 +87,7 @@
 
 	<script>
 		var toggel=0;
+		var HitCount=0;
 
 		function play() { 
 		    
@@ -108,7 +111,7 @@
 		    if (audio.paused) 
 		    { 
 		        audio.play(); 
-		        alert("배경 음악을 재생합니다. : Cheese-tte Nani?");
+		        alert("배경 음악을 재생합니다. \n▶music: Cheese-tte Nani?");
 		    }
 
 		    else
@@ -126,7 +129,7 @@
 
 			body[0].style.backgroundImage="url(" + 'l.jpg' + "), url('background.png')";
 
-
+			HitCount++;
 			
 		}
 
@@ -176,7 +179,39 @@
 			}
 		}
 
+		function Count()
+		{
+			alert("유리를 "+ HitCount +"번 때리셨습니다.");
 
+			if(HitCount<=0)
+			{
+				alert("당신은 평화주의자이신가요?");
+			}
+			else if (HitCount<=5)
+			{
+				alert("이제 화가 충분히 해소된 것을 느낍니다.");
+			}
+			else if (HitCount<=10)
+			{
+				alert("아직도 많이 화나셨나요?");
+			}
+			else if (HitCount<=20)
+			{
+				alert("유리의 얼굴이 많이 부엇습니다..");
+			}
+			else if (HitCount<=30)
+			{
+				alert("아무래도 당신은 이 짓을 즐기는 것 같군요.");
+			}
+			else if (HitCount<=60)
+			{
+				alert("유리가 훌쩍거립니다. 😪");
+			}
+			else if (HitCount>=100)
+			{
+				alert("유리는 이일을 기억할 것입니다.");
+			}
+		}
 
 
 	</script>
@@ -186,10 +221,14 @@
 </head>
 <body>
 
-	<div style="text-align: center; margin-top: 100px;">
-		<p onclick="BGM();">BGM (ON/OFF)</p></div>
 
-	<div style="text-align: center; "><p onclick="HIT();">HIT_SOUND (ON/OFF)</div>
+	<table style="border:5px dashed white; background:black; margin:auto;">
+		<td><h2>치토의 초콜릿을 뺏어먹은 유리를 혼내주자.</h2></td>
+		<td><img width="80px" src="choco.png"></td>
+	</table>
+
+
+
 
 
 	<div class="left" onmouseover="changeBgL(); play();"></div>
@@ -201,6 +240,27 @@
 
 
 	<div class="right" onmouseover="changeBgR()" ></div>
+
+
+	<div style="text-align: center; margin-top: auto; text-decoration: underline;">
+		<p onclick="BGM();">🎵BGM (ON/OFF)</p></div>
+
+	<div style="text-align: center; text-decoration: underline;"><p onclick="HIT();">🤜HIT_SOUND (ON/OFF)</div>
+
+
+	<br>
+	<div style="text-align: center; text-decoration: underline;"><p onclick="Count();">어디보자 얼마나 때렸더라..</div>
+
+
+	<br><br><br><br>
+
+	<table style="border:5px solid white; background:black; margin:auto;">
+	<td>
+	<div style="text-align: center;"><p>🎉경[소녀종말여행 정발]축🎉</p></div>
+	</td>
+	</table>
+
+	<a style="display: block;" href="https://info.flagcounter.com/VvxQ"><img src="https://s01.flagcounter.com/count2/VvxQ/bg_EBEBEB/txt_000000/border_06B2CC/columns_2/maxflags_4/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
 
 
 </body>
