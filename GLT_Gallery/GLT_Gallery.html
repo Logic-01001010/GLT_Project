@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>소녀정발여행</title>
+	<link href="icon.ico" rel="shortcut icon" type="image/x-icon">
+
+
+	<audio id='audio_play' src='HitSound.mp3'></audio>
+
+
+	<audio loop id='BGM_play' src='BGM.mp3'></audio>
+
+
+	<style>
+
+		html, body, article{margin: 0; padding: 0; height: 85%}
+
+
+
+		a
+		{
+			font-size: 24px;
+			font-weight: bold;
+			color: white;
+
+		}
+
+
+		#title
+		{
+			margin-top: 100px;
+		}
+		
+		.left
+		{
+
+			float: left;
+
+			width: 25%;
+
+			height: 100%;
+
+		}
+
+		.left-front
+		{
+			float: left;
+
+			width: 25%;
+
+			height: 100%;
+		}
+
+
+		.right-front
+		{
+			float: left;
+
+			width: 25%;
+
+			height: 100%;
+		}
+
+		.right
+		{
+			float: left;
+
+			
+			width: 25%;
+
+			height: 100%;
+
+		}
+
+
+
+		body
+		{
+			width: 100%;
+			height: 80%;
+			background-color: #000000;
+			background-image: url(''), url('background.png');
+			background-repeat: no-repeat;
+			background-size: 100%, 1924px;
+			background-position: center;
+		}
+
+
+		article
+		{
+			width: 100%;
+			height: 70%;
+			background-image: url('r.jpg');
+			background-repeat: no-repeat;
+			background-size: 800px, 110%;
+			background-position: center;
+		}
+
+
+		p, h2
+		{
+			display: inline;
+
+			text-shadow: 3px 3px 3px black;
+			color: white;
+
+
+
+			font-size: 30px;
+		}
+
+
+		.select
+		{
+		border:1px solid white;
+		border-collapse:collapse;
+		}
+
+		.select th, .select td
+		{
+			border: solid 1px white;
+			text-align: center;
+			background: black;
+		}
+
+
+	#layer ul
+	{
+		text-align: center;
+		box-shadow: 3px 3px 0 rgb(32, 200, 183);
+		margin-top: 0px;
+		margin-bottom:50px;
+		width: 95%;
+	}
+
+	li, ul
+	{
+		text-align: center;
+		padding: 5px 60px;
+		display: inline-block;
+		background: black;
+	}
+
+
+	#d-day
+	{
+		margin-top: 55px;
+		text-align: center;
+		font-size: 55px;
+		color:white;
+		font-weight: bold;
+		text-shadow: 3px 3px 0 rgb(32, 200, 183);
+	}
+
+	#Damage
+	{
+		
+		margin-top: 55px;
+		text-align: center;
+		font-size: 55px;
+		color:white;
+		font-weight: bold;
+		text-shadow: 3px 3px 0 rgb(32, 200, 183);
+	
+
+	}
+
+
+	</style>
+
+
+	<script>
+
+//디데이 종료 일자 설정
+var countDownDate = new Date("Jun 12, 2020 00:00:00").getTime();
+//1초마다 갱신되도록 함수 생성,실행
+var x = setInterval(function()
+{
+// 오늘 날짜 등록
+var now = new Date().getTime();
+// 종료일자에서 현재일자를 뺀 시간
+var distance = countDownDate - now;
+// 각 변수에 일, 시, 분, 초를 등록
+var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var s = Math.floor((distance % (1000 * 60)) / 1000);
+//id가 d-day인 HTML코드에 내용 삽입
+document.getElementById("d-day").innerHTML = "D-DAY: " + d +"일 " + h + "시간 " + m + "분 " + s + "초"; });
+
+
+
+
+
+		var toggel=0;
+		var HitCount=0;
+
+		function play() { 
+		    
+		    var audio = document.getElementById('audio_play'); 
+		    if (audio.paused) 
+		    { 
+		    	if(toggel==1)
+		        audio.play(); 
+		    }
+
+		    else
+		    { 
+		        audio.pause(); 
+		        audio.currentTime = 0 
+		    } 
+		} 
+
+		function BGM() { 
+		    
+		    var audio = document.getElementById('BGM_play'); 
+		    if (audio.paused) 
+		    { 
+		        audio.play(); 
+		        alert("▶ music: Cheese-tte Nani? \n\n 출처: https://www.youtube.com/watch?v=OqyNuNbo0XE&t=1722s");
+		    }
+
+		    else
+		    { 
+		        audio.pause(); 
+		        audio.currentTime = 0
+		    } 
+		} 
+
+
+
+		function changeBgL()
+		{
+			var body=document.getElementsByTagName("article");
+
+			body[0].style.backgroundImage="url(" + 'l.jpg' + ")";
+
+			HitCount++;
+			document.getElementById("Damage").innerHTML = HitCount;
+			
+		}
+
+
+
+		function changeBgLF()
+		{
+			var body=document.getElementsByTagName("article");
+		
+
+			body[0].style.backgroundImage="url(" + 'lf.jpg' + ")";
+
+		}
+
+
+		function changeBgRF()
+		{
+			var body=document.getElementsByTagName("article");
+
+
+			body[0].style.backgroundImage="url(" + 'rf.jpg' + ")";
+		}
+
+
+		function changeBgR()
+		{
+			var body=document.getElementsByTagName("article");
+		
+	
+			body[0].style.backgroundImage="url(" + 'r.jpg' + ")";
+
+		}
+
+
+
+
+
+	</script>
+
+
+
+</head>
+<body>
+
+	<span style="font-size: 24px; font-weight: bold;  color: white;" onclick="BGM();">🎵</span>
+
+	<div id="title" style="text-align: center;">
+		<a href="https://gall.dcinside.com/mgallery/board/lists?id=girlslastyour" target="_blank"><img src="title.png"></a>
+	</div>
+
+
+	<marquee direction="left" behavior="scroll" scrollamount="10"><p style="color: black;"><img width="100px" src="nuko.png"></p></marquee>
+
+	<div id="d-day"><p></p></div>
+
+
+
+	<div id="layer">
+
+	<ul>
+		<li>			
+			<p style="font-size: 14px;">소녀종말여행 박스세트 구매 링크 ▶</p>
+		</li>
+
+		<li>
+			<a id="link" target="_blank" href="http://www.yes24.com/Product/Goods/90338856?Acode=101">yes24</a>
+		</li>
+
+		<li>
+			<a id="link" target="_blank" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=241030899">알라딘</a>
+		</li>
+
+		<li>
+			<a id="link" target="_blank" href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791134850821&orderClick=LEa&Kc=">교보문구</a>
+		</li>
+
+
+	</ul>
+	</div>
+
+
+	<div style="margin: 0px;" id="Damage"><p>0</p></div>
+
+	<article>
+
+	<table style="border: 12px inset white; width:800px; height: 100%; margin: auto;">
+	
+	<tr>
+		<td>
+			<div class="left" onmouseover="changeBgL(); play();"></div>
+
+
+			<div class="left-front" onmouseover="changeBgLF()" ></div>
+
+			<div class="right-front" onmouseover="changeBgRF()" ></div>
+
+
+			<div class="right" onmouseover="changeBgR()" ></div>
+		</td>
+	</tr>	
+
+	</table>
+	</article>
+
+
+
+
+
+	<br><br><br><br>
+
+
+	<div style="text-align: center;">
+		<a class="twitter-timeline" data-lang="ko" data-width="500" data-height="600" data-theme="dark" href="https://twitter.com/tkmiz?ref_src=twsrc%5Etfw">Tweets by tkmiz</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</div>
+
+	<div style="text-align: right;">
+	<img width="150px" src="Statue.png">
+	<a style="display: block;" href="https://info.flagcounter.com/VvxQ"><img src="https://s01.flagcounter.com/count2/VvxQ/bg_EBEBEB/txt_000000/border_06B2CC/columns_2/maxflags_4/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+	</div>
+
+
+
+</body>
+</html>
